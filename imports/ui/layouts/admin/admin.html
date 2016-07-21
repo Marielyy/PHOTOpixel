@@ -1,0 +1,56 @@
+<template name="admin" >
+	{{#if currentUser}}
+	<h3>Administrador</h3>
+    <button type="button" class="btn btn-default" id="btn">Show Orders</button>
+    <!--<button type="button" class="btn btn-default" id="btn">Show Users</button>-->
+	{{/if}}
+</template>
+
+<template name="showOrders">
+	{{#if currentUser}}
+	<div class="col-xs-8 col-sm-8 col-md-8 col-lg-8">
+		<table class="table table-hover" width="100%">
+		<tr>
+			<td>User Email</td>
+			<td>Orders</td>
+			<td>Price Total</td>
+			<td>Date</td>
+		</tr>
+
+		{{#each i in foo}}
+		<tr>
+			<td>
+				{{i.usuario}}
+			</td>
+			<td>
+				{{#each j in i.pedido}}
+				<tr class="recorrido">
+					<td>
+					<img src="/cfs/files/images/{{j.imageId}}" width="50px">
+					</td>
+					<td>
+						{{#each k in j.orders}}
+						  {{k.text}}<br>	
+						{{/each}}
+					</td>
+					<td>
+						{{j.precioTotal}}
+					</td>
+					<td>{{ getTotal j.precioTotal }}</td>
+				</tr>
+				{{/each}}
+
+			</td>
+			<td>
+				{{i.fecha}}
+			</td>
+			<!--<td>
+				<button type="button" class="btn btn-danger remove"><span class="glyphicon glyphicon-remove"></span>Remove</button>
+			</td>-->
+		</tr>
+		{{/each}}
+	</table>
+	</div>
+	
+	{{/if}}
+</template>

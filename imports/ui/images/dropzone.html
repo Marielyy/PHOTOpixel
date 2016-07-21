@@ -1,0 +1,38 @@
+<template name="dropzone">
+    <link href="css/STYLES.CSS" rel="stylesheet"/>
+    {{#if currentUser}}
+    <div id="content-dropzone">
+        Arrastra las imagenes para subir...
+        <div id="dropzone" class="{{dropStatus}}">
+            <ul class="row gallery">
+                {{#each allImages }}
+                    {{#unless this.isUploaded}}
+                        <li class="col-md-3 col-sm-6 col-xs-12">
+                            {{> FS.UploadProgressBar}}
+                        </li>
+                    {{ else }}
+                        <li class="col-md-3 col-sm-6 col-xs-12">
+                            <div class="images">
+                                <a href="/images/{{_id}}"><img src="/cfs/files/images/{{_id}}" width="200px" alt="img" class="img-thumbnail image"></a>
+                                <div class="controls">
+                                    <div class="btn-group btn-group-sm" role="group">
+                                        <button type="button" class="btn btn-success"><span class="glyphicon glyphicon-pencil"></span></button>
+                                        <button type="button" class="btn btn-primary"><span class="glyphicon glyphicon-picture"></span></button>
+                                        <button type="button" class="btn btn-danger remove"><span class="glyphicon glyphicon-remove"></span></button>
+                                    </div>
+                                </div>
+                            </div>
+                        </li>
+                    {{/unless}}
+                {{/each}}
+            </ul>
+        </div>
+    </div>
+
+    {{else}}
+       <div class="alert alert-danger alert-dismissible" role="alert">
+        <button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+        <strong>Alerta! </strong>You have to log in
+    </div> 
+    {{/if}}
+</template>

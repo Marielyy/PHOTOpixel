@@ -1,0 +1,32 @@
+<template name="layout">
+    <div id="global">
+      {{> nav }}
+    <div class="container-fluid">
+        <div class="row">
+            <div class="col-xs-12">
+                {{> Template.dynamic template=blog }}
+            </div>
+            <div class="col-xs-6">
+                {{> Template.dynamic template=medio }}
+            </div>
+            <div class="col-xs-5 section-left">
+                {{> Template.dynamic template=section }}
+            </div>
+            <div class="col-xs-12 col-md-4">
+                {{> Template.dynamic template=subnav }}
+            </div>
+            
+            <div class="col-xs-12 col-md-3 section-right">
+                {{> Template.dynamic template=main }}
+            </div>
+        </div>
+        <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
+                {{> Template.dynamic template=carusel }}
+        </div>
+        <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
+                {{> Template.dynamic template=footers }}
+        </div>
+        
+    </div>
+</div>
+</template>

@@ -1,0 +1,15 @@
+<template name="layout2">
+	<div id="global">
+      {{> nav }}
+    <div class="container-fluid">
+        <div class="row">
+            <div class="col-xs-10 section-left">
+                {{> Template.dynamic template=section2 }}
+            </div>
+            <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
+                {{> Template.dynamic template=footers }}
+            </div>
+        </div>
+    </div>
+</div>	
+</template>

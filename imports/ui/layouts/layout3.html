@@ -1,0 +1,24 @@
+<template name="layout3">
+    <div id="global">
+      {{> nav }}
+    <div class="container-fluid">
+        <div class="row">
+            <div class="col-xs-5 col-md-4 ">
+                {{> Template.dynamic template=drop }}
+            </div>
+            <div class="col-xs-5 col-md-5 ">
+                {{> Template.dynamic template=button }}
+            </div>
+            <div class="col-xs-2 col-md-2 ">
+                {{> Template.dynamic template=preview }}
+                <div class="col-xs-6 col-md-2">
+                {{> Template.dynamic template=previo }}
+            </div>
+            </div>
+        </div>
+        <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
+                {{> Template.dynamic template=footers }}
+            </div>
+    </div>
+</div>
+</template>

@@ -1,0 +1,65 @@
+<template name="previeworders" >
+	{{#if currentUser}}
+		<div class="col-xs-6 col-sm-6 col-md-6 col-lg-6">
+		<table class="table table-hover" width="100%">
+			<tr>
+				<td>Image</td>
+				<td>Orders</td>
+				<td>Price Total</td>
+			</tr>
+
+			{{#each i in Aux}}
+			<tr>
+				<td>
+					<img src="/cfs/files/images/{{i.imageId}}" width="50px">
+					<!--{{i.imageId}}-->
+					
+				</td>
+				<td>
+					{{#each j in i.orders}}
+						{{j.text}}<br>
+					{{/each}}
+				</td>
+				<td>
+					{{i.precioTotal}}
+				</td>
+
+				<!--<td>
+					<button type="button" class="btn btn-danger remove" id="rm"><span class="glyphicon glyphicon-remove" ></span>Remove</button>
+				</td>-->
+			</tr>
+			{{/each}}
+	</table>
+	</div>
+
+	<div class="col-xs-4">
+		<form role="form" id="formTarjeta" name="formTarjeta">
+                <div class="form-group">
+                    <label for="nombre" id="tres">Card Number:</label>
+                    <input type="number" class="form-control" id="numero" name="numero" required>
+                </div>
+                <div class="form-group">
+                    <label for="nombre" id="tres">Name Card:</label>
+                    <input type="text" class="form-control" id="nombre" name="nombre" required>
+                </div>
+                <div class="form-group">
+                    <label for="nombre" id="tres">Security Number:</label>
+                    <input type="number" class="form-control" id="numeroseguridad" name="numeroseguridad" required>
+                </div>
+                <div class="form-group">
+                    <label for="nombre" id="tres">Due Date:</label>
+                    <input type="date" class="form-control" id="fecha" name="fecha" required>
+                </div>
+                <button type="submit" id="tp" class="btn btn-default btn-info">Send Orders</button>
+            </form>
+	</div>
+		
+
+	
+	{{else}}
+		 <div class="alert alert-danger alert-dismissible" role="alert">
+        <button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+        <strong>Alerta! </strong> You have to log in
+    </div>
+	{{/if}}
+</template>
